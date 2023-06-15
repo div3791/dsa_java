@@ -3,7 +3,7 @@ import java.util.*;
 public class DetectCycleInDirectedGraphToposort {
     public boolean isCyclic(int V, ArrayList<ArrayList<Integer>> adj) {
         int[] indegrees = new int[V];
-        Queue<Integer> queue = new LinkedList();
+        Queue<Integer> queue = new LinkedList<Integer>();
 
         for (int i = 0; i < V; i++) {
             for (int j : adj.get(i)) {
