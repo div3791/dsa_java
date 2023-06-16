@@ -1,27 +1,13 @@
-import java.util.List;
 
 public class DSAJava {
     public static void main(String[] args) {
 
-        ShortestPathInUndirected shortestPathInUndirected = new ShortestPathInUndirected();
+        NumberOfWaysToArriveAtDestination numberOfWaysToArriveAtDestination = new NumberOfWaysToArriveAtDestination();
 
-        int n = 5;
-        int m = 6;
-        int[][] edges = {
-                { 1, 2, 2 },
-                { 2, 5, 5 },
-                { 2, 3, 4 },
-                { 1, 4, 1 },
-                { 4, 3, 3 },
-                { 3, 5, 1 },
-        };
+        int n = 7;
+        int[][] edges = { { 0, 6, 7 }, { 0, 1, 2 }, { 1, 2, 3 }, { 1, 3, 3 }, { 6, 3, 3 }, { 3, 5, 1 }, { 6, 5, 1 },
+                { 2, 5, 1 }, { 0, 4, 5 }, { 4, 6, 2 } };
 
-        // case 2
-        // n = 3;
-        // m = 1;
-        // int[][] edges = { { 1, 2, 1 } };
-
-        List<Integer> path = shortestPathInUndirected.printShortestPath(n, m, edges);
-        System.out.println(path);
+        numberOfWaysToArriveAtDestination.countPaths(n, edges);
     }
 }

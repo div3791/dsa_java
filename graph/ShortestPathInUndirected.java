@@ -81,17 +81,17 @@ public class ShortestPathInUndirected {
             }
         }
 
-        ArrayList<Integer> src = new ArrayList<>();
+        ArrayList<Integer> path = new ArrayList<>();
         if (distances[n] == (int) 1e9) {
-            src.add(-1);
-            return src;
+            path.add(-1);
+            return path;
         }
 
         int node = n;
 
-        getPath(node, distances, parent, src);
-        src.add(n);
-        return src;
+        getPath(node, distances, parent, path);
+        path.add(n);
+        return path;
 
     }
 
@@ -116,4 +116,5 @@ public class ShortestPathInUndirected {
             this.node = node;
         }
     }
+
 }

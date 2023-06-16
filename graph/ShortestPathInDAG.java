@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Stack;
+import java.util.*;
 
 public class ShortestPathInDAG {
     public int[] shortestPath(int N, int M, int[][] edges) {
