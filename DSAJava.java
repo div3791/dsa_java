@@ -1,13 +1,31 @@
+import java.util.*;
+
+import tree.BTTraversal;
+import tree.Node;
+import tree.TreeHight;
 
 public class DSAJava {
     public static void main(String[] args) {
 
-        NumberOfWaysToArriveAtDestination numberOfWaysToArriveAtDestination = new NumberOfWaysToArriveAtDestination();
+        Node<Integer> l1 = new Node<Integer>(2, null, null);
+        Node<Integer> l2 = new Node<Integer>(4, null, null);
+        Node<Integer> l3 = new Node<Integer>(6, null, null);
+        Node<Integer> r1 = new Node<Integer>(3, null, null);
+        Node<Integer> r2 = new Node<Integer>(5, null, null);
+        Node<Integer> r3 = new Node<Integer>(7, null, null);
+        Node<Integer> root = new Node<Integer>(1, null, null);
 
-        int n = 7;
-        int[][] edges = { { 0, 6, 7 }, { 0, 1, 2 }, { 1, 2, 3 }, { 1, 3, 3 }, { 6, 3, 3 }, { 3, 5, 1 }, { 6, 5, 1 },
-                { 2, 5, 1 }, { 0, 4, 5 }, { 4, 6, 2 } };
+        root.left = l1;
+        root.right = r3;
+        l1.left = r1;
+        l1.right = l2;
+        l2.left = r2;
+        l2.right = l3;
 
-        numberOfWaysToArriveAtDestination.countPaths(n, edges);
+        BTTraversal traversal = new BTTraversal();
+        ArrayList<Integer> result = new ArrayList<>();
+
+        traversal.inOrder(root).forEach((value) -> System.out.println(value));
+
     }
 }
