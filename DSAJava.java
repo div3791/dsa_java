@@ -1,31 +1,30 @@
 import java.util.*;
 
 import tree.BTTraversal;
-import tree.Node;
-import tree.TreeHight;
+import tree.TreeNode;
 
 public class DSAJava {
     public static void main(String[] args) {
 
-        Node<Integer> l1 = new Node<Integer>(2, null, null);
-        Node<Integer> l2 = new Node<Integer>(4, null, null);
-        Node<Integer> l3 = new Node<Integer>(6, null, null);
-        Node<Integer> r1 = new Node<Integer>(3, null, null);
-        Node<Integer> r2 = new Node<Integer>(5, null, null);
-        Node<Integer> r3 = new Node<Integer>(7, null, null);
-        Node<Integer> root = new Node<Integer>(1, null, null);
+        TreeNode l1 = new TreeNode(2, null, null);
+        TreeNode l2 = new TreeNode(4, null, null);
+        TreeNode l3 = new TreeNode(6, null, null);
+        TreeNode r1 = new TreeNode(3, null, null);
+        TreeNode r2 = new TreeNode(5, null, null);
+        TreeNode r3 = new TreeNode(7, null, null);
+        TreeNode root = new TreeNode(1, null, null);
 
         root.left = l1;
-        root.right = r3;
-        l1.left = r1;
-        l1.right = l2;
-        l2.left = r2;
-        l2.right = l3;
+        root.right = r1;
+        l1.left = l2;
+        l1.right = r2;
+        r1.left = l3;
+        r1.right = r3;
 
         BTTraversal traversal = new BTTraversal();
         ArrayList<Integer> result = new ArrayList<>();
 
-        traversal.inOrder(root).forEach((value) -> System.out.println(value));
+        traversal.postOrder(root, result).forEach((value) -> System.out.println(value));
 
     }
 }

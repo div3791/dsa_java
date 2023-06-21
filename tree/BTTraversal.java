@@ -8,7 +8,7 @@ public class BTTraversal {
      * Recursive traversals
      */
 
-    public ArrayList<Integer> preOrder(Node<Integer> root, ArrayList<Integer> result) {
+    public ArrayList<Integer> preOrder(TreeNode root, ArrayList<Integer> result) {
         if (root == null)
             return result;
         result.add(root.data);
@@ -17,7 +17,7 @@ public class BTTraversal {
         return result;
     }
 
-    public ArrayList<Integer> postOrder(Node<Integer> root, ArrayList<Integer> result) {
+    public ArrayList<Integer> postOrder(TreeNode root, ArrayList<Integer> result) {
         if (root == null)
             return result;
         postOrder(root.left, result);
@@ -26,7 +26,7 @@ public class BTTraversal {
         return result;
     }
 
-    public ArrayList<Integer> inOrder(Node<Integer> root, ArrayList<Integer> result) {
+    public ArrayList<Integer> inOrder(TreeNode root, ArrayList<Integer> result) {
         if (root == null)
             return result;
         inOrder(root.left, result);
@@ -37,13 +37,13 @@ public class BTTraversal {
 
     /* ---------------------------------- */
 
-    public ArrayList<Integer> levelOrder(Node<Integer> root) {
+    public ArrayList<Integer> levelOrder(TreeNode root) {
         ArrayList<Integer> result = new ArrayList<>();
-        Queue<Node<Integer>> queue = new LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
 
         while (!queue.isEmpty()) {
-            Node<Integer> item = queue.peek();
+            TreeNode item = queue.peek();
             queue.remove();
             result.add(item.data);
             if (item.left != null)
@@ -57,15 +57,15 @@ public class BTTraversal {
     }
 
     /* Iterative traversals */
-    public ArrayList<Integer> preOrder(Node<Integer> root) {
+    public ArrayList<Integer> preOrder(TreeNode root) {
         ArrayList<Integer> result = new ArrayList<>();
         if (root == null)
             return result;
-        Stack<Node<Integer>> stack = new Stack<>();
+        Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
 
         while (!stack.isEmpty()) {
-            Node<Integer> node = stack.peek();
+            TreeNode node = stack.peek();
             result.add(node.data);
             stack.pop();
 
@@ -78,24 +78,23 @@ public class BTTraversal {
         return result;
     }
 
-    public ArrayList<Integer> inOrder(Node<Integer> root) {
+    public ArrayList<Integer> inOrder(TreeNode root) {
         ArrayList<Integer> result = new ArrayList<>();
-        Stack<Node<Integer>> stack = new Stack<>();
-        Node<Integer> node = root;
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode node = root;
         while (true) {
             if (node != null) {
                 stack.push(node);
                 node = node.left;
-
             } else {
-                if (stack.isEmpty()) {
+                if (stack.isEmpty())
                     break;
-                }
                 node = stack.pop();
                 result.add(node.data);
                 node = node.right;
             }
         }
+
         return result;
     }
 

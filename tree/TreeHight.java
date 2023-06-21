@@ -1,7 +1,7 @@
 package tree;
 
 public class TreeHight {
-    public int getTreeHeight(Node<Integer> root) {
+    public int getTreeHeight(TreeNode root) {
         if (root == null) {
             return 0;
         }
